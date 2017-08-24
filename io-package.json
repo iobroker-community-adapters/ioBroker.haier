@@ -1,0 +1,50 @@
+{
+    "common": {
+        "name": "haier",
+        "version": "0.5.0",
+        "news": {
+            "0.5.0": {
+                "en": "beta version",
+                "de": "Betaversion",
+                "ru": "Бета версия",
+                "pt": "Versão beta",
+                "fr": "Version bêta",
+                "nl": "Beta versie"
+            },
+            "0.0.1": {
+                "en": "initial adapter",
+                "de": "Initiale Version",
+                "ru": "Первоначальный адаптер",
+                "pt": "Versão inicial",
+                "fr": "Version initiale",
+                "nl": "Eerste release"
+            }
+        },
+        "title": "Javascript/Node.js based haier adapter",
+        "desc": {
+            "en": "ioBroker haier Adapter",
+            "de": "ioBroker Haier Adapter",
+            "ru": "ioBroker Haier драйвер как образец",
+            "pt": "Modelo de adaptador para o ioBroker",
+            "fr": "ioBroker adaptateur modèle",
+            "nl": "ioBroker Haier Adapter"
+        },
+        "platform": "Javascript/Node.js",
+        "mode": "daemon",
+        "icon": "haier.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.haier/master/admin/haier.png",
+        "keywords": ["haier", "vis", "GUI", "graphical", "scada"],
+        "readme": "https://github.com/ioBroker/ioBroker.haier/blob/master/README.md",
+        "loglevel": "info",
+        "type": "general",
+        "restartAdapters": ["vis"]
+    },
+    "native": {
+        "test1": true,
+        "test2": 42
+    },
+    "objects": [
+
+    ]
+}
