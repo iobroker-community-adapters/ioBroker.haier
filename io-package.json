@@ -1,16 +1,8 @@
 {
     "common": {
         "name": "haier",
-        "version": "0.5.0",
+        "version": "0.0.1",
         "news": {
-            "0.5.0": {
-                "en": "beta version",
-                "de": "Betaversion",
-                "ru": "Бета версия",
-                "pt": "Versão beta",
-                "fr": "Version bêta",
-                "nl": "Beta versie"
-            },
             "0.0.1": {
                 "en": "initial adapter",
                 "de": "Initiale Version",
@@ -24,7 +16,7 @@
         "desc": {
             "en": "ioBroker haier Adapter",
             "de": "ioBroker Haier Adapter",
-            "ru": "ioBroker Haier драйвер как образец",
+            "ru": "ioBroker Haier драйвер",
             "pt": "Modelo de adaptador para o ioBroker",
             "fr": "ioBroker adaptateur modèle",
             "nl": "ioBroker Haier Adapter"
@@ -34,11 +26,10 @@
         "icon": "haier.png",
         "enabled": true,
         "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.haier/master/admin/haier.png",
-        "keywords": ["haier", "vis", "GUI", "graphical", "scada"],
+        "keywords": ["haier", "air conditioning"],
         "readme": "https://github.com/ioBroker/ioBroker.haier/blob/master/README.md",
         "loglevel": "info",
-        "type": "general",
-        "restartAdapters": ["vis"]
+        "type": "hardware"
     },
     "native": {
         "test1": true,

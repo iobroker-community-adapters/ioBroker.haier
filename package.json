@@ -1,7 +1,7 @@
 {
   "name": "iobroker.haier",
-  "version": "0.5.0",
-  "description": "ioBroker haier Adapter",
+  "version": "0.0.1",
+  "description": "ioBroker Haier air conditioning Adapter",
   "author": {
     "name": "instalator",
     "email": "vvvalt@mail.ru"
@@ -17,8 +17,7 @@
   "keywords": [
     "ioBroker",
     "haier",
-    "Smart Home",
-    "home automation"
+    "air conditioning"
   ],
   "repository": {
     "type": "git",
