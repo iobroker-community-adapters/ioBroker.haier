@@ -25,9 +25,9 @@
         "mode": "daemon",
         "icon": "haier.png",
         "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.haier/master/admin/haier.png",
+        "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.haier/master/admin/haier.png",
         "keywords": ["haier", "air conditioning"],
-        "readme": "https://github.com/ioBroker/ioBroker.haier/blob/master/README.md",
+        "readme": "https://github.com/instalator/ioBroker.haier/blob/master/README.md",
         "loglevel": "info",
         "type": "hardware"
     },

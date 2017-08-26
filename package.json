@@ -12,7 +12,7 @@
       "email": "vvvalt@mail.ru"
     }
   ],
-  "homepage": "https://github.com/ioBroker/ioBroker.haier",
+  "homepage": "https://github.com/instalator/ioBroker.haier",
   "license": "MIT",
   "keywords": [
     "ioBroker",
@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ioBroker/ioBroker.haier"
+    "url": "https://github.com/instalator/ioBroker.haier"
   },
   "dependencies": {
   },
@@ -39,7 +39,7 @@
     "test": "node node_modules/mocha/bin/mocha"
   },
   "bugs": {
-    "url": "https://github.com/ioBroker/ioBroker.haier/issues"
+    "url": "https://github.com/instalator/ioBroker.haier/issues"
   },
   "readmeFilename": "README.md"
 }
