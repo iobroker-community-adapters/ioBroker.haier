@@ -135,7 +135,7 @@ function main() {
         if (chunk.length == 36){
             in_msg = Buffer.from(chunk);
             in_msg = in_msg.slice(1, 35);
-            adapter.log.info("Haier incomming: " + in_msg.toString('hex'));
+            adapter.log.debug("Haier incomming: " + in_msg.toString('hex'));
             parse(in_msg);
         }
     });
