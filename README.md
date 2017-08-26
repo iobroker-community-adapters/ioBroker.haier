@@ -9,7 +9,7 @@ ioBroker Haier air conditioning adapter
 
 ## Changelog
 
-### 0.0.2
+### 0.0.3
   (instalator) alfa version adapter
 
 ### 0.0.1
