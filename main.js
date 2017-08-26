@@ -1,21 +1,32 @@
 "use strict";
-var utils =    require(__dirname + '/lib/utils'); // Get common adapter utils
+var utils =    require(__dirname + '/lib/utils');
 var adapter = utils.adapter('haier');
 var net = require('net');
 var haier = net.Socket();
 var polling_time = 2000;
 var query = null;
-var in_msg;
-var out_msg;
-var states = {};
-var old_states = {};
+var tabu = false;
+var in_msg, out_msg, states = {}, old_states = {};
 var command = {
     qstn:       [10,0,0,0,0,0,1,1,77,1], // Команда опроса
     poweron:    [10,0,0,0,0,0,1,1,77,2], // Включение кондиционера
     poweroff:   [10,0,0,0,0,0,1,1,77,3], // Выключение кондиционера
-    lockremote: [10,0,0,0,0,0,1,3,0,0]  // Блокировка пульта
+    lockremote: [10,0,0,0,0,0,1,3,0,0]   // Блокировка пульта
 };
 
+var byte = {
+    temp:       11,
+    mode:       21,
+    fanspeed:   23,
+    swing:      25,
+    lockremote: 26,
+    fresh:      29,
+    settemp:    33,
+    power:      27,
+    quiet:      27,
+    compressor: 27,
+    cmd:        15
+};
 
 adapter.on('unload', function (callback) {
     if(haier){
@@ -44,22 +55,9 @@ adapter.on('stateChange', function (id, state) {
     }
 });
 
-
-var byte = {
-    temp:       11,
-    mode:       21,
-    fanspeed:   23,
-    swing:      25,
-    lockremote: 26,
-    fresh:      29,
-    settemp:    33,
-    power:      27,
-    quiet:      27,
-    compressor: 27,
-    cmd:        15
-};
 function sendCmd(cmd, val){
     out_msg = in_msg;
+    tabu = true;
     switch (cmd) {
         case 'power':
             if(val === true){
@@ -103,6 +101,7 @@ function sendCmd(cmd, val){
             send(out_msg);
             break;
         case 'settemp':
+            val =  parseInt(val);
             if(val < 18){
                 val = 18;
             } else if(val > 33){
@@ -157,7 +156,9 @@ function connect(cb){
         adapter.log.info('Haier connected to: ' + host + ':' + port);
         clearInterval(query);
         query = setInterval(function() {
-            send(command.qstn);
+            if(!tabu){
+                send(command.qstn);
+            }
         }, polling_time);
         if(cb){return cb;}
     });
@@ -175,14 +176,14 @@ function send(cmd){
         cmd = packet(cmd);
         adapter.log.debug('Send Command: ' + cmd.toString("hex"));
         haier.write(cmd);
+        tabu = false;
     }
 }
 
 
 function parse(msg){
-    //22 00 00 00 00 00 01 02 6d 01 00 1a 00 00 00 7f 00 00 00 00 00 01 00 02 00 00 00 11 00 00 00 00 00 0a
-    states.temp = msg[byte.temp];        //Текущая температура
-    switch (msg[byte.mode]) { //4 - DRY, 1 - cool, 2 - heat, 0 - smart, 3 - вентиляция
+    states.temp = msg[byte.temp]; //Текущая температура
+    switch (msg[byte.mode]) { //4 - DRY, 1 - cool, 2 - heat, 0 - smart, 3 - вентилятор
         case 0:
             states.mode = 'smart';
             break;
@@ -255,7 +256,7 @@ function parse(msg){
     Object.keys(states).forEach(function(key) {
         if(states[key] !== old_states[key]){
             old_states[key] = states[key];
-            setObject(key, states[key]);
+            adapter.setState(key, {val: states[key], ack: true});
         }
     });
 }
@@ -267,32 +268,6 @@ function toBool(nb){
         return true;
     }
 }
-
-function setObject (name, val){
-    var type = 'string';
-    var role = 'state';
-    adapter.log.debug('setObject ' + JSON.stringify(name));
-    /*adapter.getState(name, function (err, state){
-        if ((err || !state)){
-            adapter.setObject(name, {
-                type:   'state',
-                common: {
-                    name: name,
-                    desc: name,
-                    type: type,
-                    role: role
-                },
-                native: {}
-            });
-            adapter.setState(name, {val: val, ack: true});
-        } else {
-            adapter.setState(name, {val: val, ack: true});
-        }
-    });*/
-    adapter.setState(name, {val: val, ack: true});
-    //adapter.subscribeStates('*');
-}
-
 
 function packet(data){
     var chksum = CRC(data);
