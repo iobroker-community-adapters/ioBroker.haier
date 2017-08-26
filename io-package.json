@@ -1,8 +1,16 @@
 {
     "common": {
         "name": "haier",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "news": {
+            "0.0.2": {
+                "en": "alfa version adapter",
+                "de": "alfa version adapter",
+                "ru": "alfa version adapter",
+                "pt": "alfa version adapter",
+                "fr": "alfa version adapter",
+                "nl": "alfa version adapter"
+            }
             "0.0.1": {
                 "en": "initial adapter",
                 "de": "Initiale Version",
@@ -12,7 +20,7 @@
                 "nl": "Eerste release"
             }
         },
-        "title": "Javascript/Node.js based haier adapter",
+        "title": "Haier air conditioning control",
         "desc": {
             "en": "ioBroker haier Adapter",
             "de": "ioBroker Haier Adapter",
@@ -24,7 +32,7 @@
         "platform": "Javascript/Node.js",
         "mode": "daemon",
         "icon": "haier.png",
-        "enabled": true,
+        "enabled": false,
         "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.haier/master/admin/haier.png",
         "keywords": ["haier", "air conditioning"],
         "readme": "https://github.com/instalator/ioBroker.haier/blob/master/README.md",
@@ -37,5 +45,175 @@
     },
     "objects": [
 
+    ],
+    "instanceObjects": [
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "if connected to Haier",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "temp",
+            "type": "state",
+            "common": {
+                "role": "indicator",
+                "name": "current temperature",
+                "desc": "current temperature",
+                "type": "number",
+                "unit": "°C",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "settemp",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "set temperature",
+                "desc": "set temperature",
+                "type": "number",
+                "unit": "°C",
+                "min": 18,
+                "max": 33,
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "mode",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "mode",
+                "desc": "mode",
+                "type": "string",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "fanspeed",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "fan speed",
+                "desc": "fan speed",
+                "type": "string",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "swing",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "swing",
+                "desc": "swing",
+                "type": "string",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "lockremote",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "lock remote",
+                "desc": "lock remote",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "fresh",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "fresh",
+                "desc": "fresh",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "power",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "power",
+                "desc": "power",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "quiet",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "quiet",
+                "desc": "quiet",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "compressor",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "compressor",
+                "desc": "compressor",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {
+            }
+        }
     ]
 }
