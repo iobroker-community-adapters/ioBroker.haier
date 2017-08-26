@@ -5,12 +5,11 @@ var net = require('net');
 var haier = net.Socket();
 var polling_time = 2000;
 var query = null;
-var qstn = new Buffer([10,0,0,0,0,0,1,1,77,1]);
 var in_msg;
 var out_msg;
 var states = {};
 var old_states = {};
-var cmd = {
+var command = {
     qstn:       [10,0,0,0,0,0,1,1,77,1], // Команда опроса
     poweron:    [10,0,0,0,0,0,1,1,77,2], // Включение кондиционера
     poweroff:   [10,0,0,0,0,0,1,1,77,3], // Выключение кондиционера
@@ -64,9 +63,9 @@ function sendCmd(cmd, val){
     switch (cmd) {
         case 'power':
             if(val === true){
-                send(cmd.poweron);
+                send(command.poweron);
             } else {
-                send(cmd.poweroff);
+                send(command.poweroff);
             }
             break;
         case 'mode': //4 - DRY, 1 - cool, 2 - heat, 0 - smart, 3 - fan
@@ -95,7 +94,7 @@ function sendCmd(cmd, val){
             send(out_msg);
             break;
         case 'lockremote': //128 блокировка вкл., 0 -  выкл
-            send(cmd.lockremote);
+            send(command.lockremote);
             break;
         case 'fresh': //fresh 0 - off, 1 - on
                  if(val == false) { val = 0; }
@@ -158,7 +157,7 @@ function connect(cb){
         adapter.log.info('Haier connected to: ' + host + ':' + port);
         clearInterval(query);
         query = setInterval(function() {
-            send(cmd.qstn);
+            send(command.qstn);
         }, polling_time);
         if(cb){return cb;}
     });
@@ -169,6 +168,9 @@ function send(cmd){
     if (cmd !== undefined){
         if(cmd.length > 20){
             cmd[byte.cmd] = 0; // 00-команда 7F-ответ
+            cmd[7] = 1;
+            cmd[8] = 77;
+            cmd[9] = 95;
         }
         cmd = packet(cmd);
         adapter.log.debug('Send Command: ' + cmd.toString("hex"));
