@@ -7,6 +7,9 @@ ioBroker Haier air conditioning adapter
 
 [![NPM](https://nodei.co/npm/iobroker.haier.png?downloads=true)](https://nodei.co/npm/iobroker.haier/)
 
+IoBroker Haier adapter is used to control your Haier air conditioning via UART in conjunction with the TCP to Serial Gateway.
+The work is checked on the air conditioner of the 'Lightera' series.
+
 ## Changelog
 
 ### 0.0.4

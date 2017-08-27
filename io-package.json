@@ -4,12 +4,12 @@
         "version": "0.0.4",
         "news": {
             "0.0.4": {
-                "en": "alfa version adapter",
-                "de": "alfa version adapter",
-                "ru": "alfa version adapter",
-                "pt": "alfa version adapter",
-                "fr": "alfa version adapter",
-                "nl": "alfa version adapter"
+                "en": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code",
+                "de": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code",
+                "ru": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code",
+                "pt": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code",
+                "fr": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code",
+                "nl": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code"
             },
             "0.0.3": {
                 "en": "alfa version adapter",
@@ -185,21 +185,6 @@
                 "role": "state",
                 "name": "power",
                 "desc": "power",
-                "type": "boolean",
-                "read": true,
-                "write": true,
-                "def": false
-            },
-            "native": {
-            }
-        },
-        {
-            "_id": "quiet",
-            "type": "state",
-            "common": {
-                "role": "state",
-                "name": "quiet",
-                "desc": "quiet",
                 "type": "boolean",
                 "read": true,
                 "write": true,
