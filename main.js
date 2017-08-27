@@ -11,9 +11,11 @@ var command = {
     qstn:       [10,0,0,0,0,0,1,1,77,1], // Команда опроса
     poweron:    [10,0,0,0,0,0,1,1,77,2], // Включение кондиционера
     poweroff:   [10,0,0,0,0,0,1,1,77,3], // Выключение кондиционера
-    lockremote: [10,0,0,0,0,0,1,3,0,0]   // Блокировка пульта
+    no:         [10,0,0,0,0,0,1,1,77,4], // отображает на дисплее установленную температуру ???
+    lockremote: [10,0,0,0,0,0,1,3,0,0],  // Блокировка пульта ???
+    healthon:   [10,0,0,0,0,0,1,1,77,9], // Включение режима health (здоровье)
+    healthoff:  [10,0,0,0,0,0,1,1,77,8]  // Выключение режима health (здоровье)
 };
-
 var byte = {
     temp:       11,
     mode:       21,
@@ -23,10 +25,11 @@ var byte = {
     fresh:      29,
     settemp:    33,
     power:      27,
-    quiet:      27,
     compressor: 27,
+    health:     27,
     cmd:        15
 };
+
 
 adapter.on('unload', function (callback) {
     if(haier){
@@ -92,7 +95,11 @@ function sendCmd(cmd, val){
             send(out_msg);
             break;
         case 'lockremote': //128 блокировка вкл., 0 -  выкл
-            send(command.lockremote);
+            if(val == false)  { val = 0; }
+            else if(val == true)  { val = 128; }
+            out_msg[byte.lockremote] = val;
+            send(out_msg);
+            //send(command.lockremote);
             break;
         case 'fresh': //fresh 0 - off, 1 - on
                  if(val == false) { val = 0; }
@@ -110,15 +117,18 @@ function sendCmd(cmd, val){
             out_msg[byte.settemp] = val - 16;
             send(out_msg);
             break;
-        case 'quiet':  //on/off 1 - on, 0 - off (16, 17)-Компрессор??? 9 - QUIET (17)
-                 if(val == false) { val = 1; }
-            else if(val == true)  { val = 9; }
-            out_msg[byte.quiet] = val;
-            send(out_msg);
+        case 'health':  //on/off 1 - on, 0 - off (16, 17)-Компрессор??? 9 - QUIET (17)
+            if(val === true){
+                send(command.healthon);
+            } else {
+                send(command.healthoff);
+            }
+            break;
+        case 'raw':
+                send(toArr(val, 2));
             break;
         default:
     }
-
 }
 
 adapter.on('ready', function () {
@@ -127,7 +137,7 @@ adapter.on('ready', function () {
 
 function main() {
     adapter.subscribeStates('*');
-
+    var story = [];
     connect();
     haier.on('data', function(chunk) {
         if (chunk.length == 36){
@@ -167,7 +177,7 @@ function connect(cb){
 function send(cmd){
     cmd = Buffer(cmd);
     if (cmd !== undefined){
-        if(cmd.length > 20){
+        if(cmd.length > 20 && cmd.length < 35){
             cmd[byte.cmd] = 0; // 00-команда 7F-ответ
             cmd[7] = 1;
             cmd[8] = 77;
@@ -179,7 +189,6 @@ function send(cmd){
         tabu = false;
     }
 }
-
 
 function parse(msg){
     states.temp = msg[byte.temp]; //Текущая температура
@@ -231,27 +240,25 @@ function parse(msg){
             break;
         default:
     }
-    states.lockremote = toBool(msg[byte.lockremote]);        //128 блокировка вкл., 0 -  выкл
+    states.lockremote = toBool(msg[byte.lockremote]);   //128 блокировка вкл., 0 -  выкл
     states.fresh      = toBool(msg[byte.fresh]);        //fresh 0 - off, 1 - on
-    states.settemp    = msg[byte.settemp] + 16;   //Установленная температура
-
-    if(msg[byte.power] == 1 || msg[byte.power] == 16 || msg[byte.power] == 17 || msg[byte.power] == 9){
+    states.settemp    = msg[byte.settemp] + 16;         //Установленная температура
+    if(msg[byte.power] == 1 || msg[byte.power] == 16 || msg[byte.power] == 17 || msg[byte.power] == 25 || msg[byte.power] == 9){
         //on/off 1 - on, 0 - off (16, 17)-Компрессор??? 9 - QUIET (17)
         states.power = true;
     } else if(msg[byte.power] == 0){
         states.power = false;
     }
-    if(msg[byte.quiet] == 9){
-        states.quiet = true; //бесшумный режим
+    if(msg[byte.health] == 25 || msg[byte.power] == 9){
+        states.health = true; //УФ лампа - режим здоровье
     } else {
-        states.quiet = false;
+        states.health = false;
     }
     if(msg[byte.compressor] == 17){
         states.compressor = true;
     } else if(msg[byte.power] == 16){
         states.compressor = false;
     }
-
     adapter.log.debug('states ' + JSON.stringify(states));
     Object.keys(states).forEach(function(key) {
         if(states[key] !== old_states[key]){
@@ -280,6 +287,17 @@ function CRC(d){
         sum += d[key];
     }
    return sum;
+}
+
+function toArr(text, numb){
+    var arr = [], res;
+    for (var i = 0; i < text.length / numb; i++) {
+        res = parseInt(text.slice(numb * i, numb * i + numb), 16);
+        if(!isNaN(res)){
+            arr.push(res);
+        }
+    }
+    return arr
 }
 
 function err(e){

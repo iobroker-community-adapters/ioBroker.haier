@@ -9,6 +9,13 @@ ioBroker Haier air conditioning adapter
 
 ## Changelog
 
+### 0.0.4
+  (instalator) change level log
+  (instalator) fix send command
+  (instalator) change for test file setup.js
+  (instalator) fix error
+  (instalator) added object for send raw code
+
 ### 0.0.3
   (instalator) alfa version adapter
 
