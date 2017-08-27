@@ -18,7 +18,7 @@ The work is checked on the air conditioner of the 'Lightera' series.
   (instalator) change for test file setup.js
   (instalator) fix error
   (instalator) added object for send raw code
-
+  
 ### 0.0.3
   (instalator) alfa version adapter
 
