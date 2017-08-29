@@ -10,10 +10,10 @@ ioBroker Haier air conditioning adapter
 IoBroker Haier adapter is used to control your Haier air conditioning via UART in conjunction with the TCP to Serial Gateway.
 The work is checked on the air conditioner of the 'Lightera' series.
 
-##Hardware
+## Hardware
 As a TCP to Serial gateway, I use this [code](https://github.com/instalator/ESP8266.TelnetToSerial) and this [device](https://blog.instalator.ru/archives/433).
 
-##Using
+## Using
 
 ### power
 Switching the air conditioner on and off. (true/false)
