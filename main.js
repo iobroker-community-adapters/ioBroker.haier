@@ -70,27 +70,27 @@ function sendCmd(cmd, val){
             }
             break;
         case 'mode': //4 - DRY, 1 - cool, 2 - heat, 0 - smart, 3 - fan
-                 if(val == 'smart') { val = 0; }
-            else if(val == 'cool')  { val = 1; }
-            else if(val == 'heat')  { val = 2; }
-            else if(val == 'fan')   { val = 3; }
-            else if(val == 'fan')   { val = 4; }
+                 if(val == 'smart' || val == 0) { val = 0; }
+            else if(val == 'cool'  || val == 1) { val = 1; }
+            else if(val == 'heat'  || val == 2) { val = 2; }
+            else if(val == 'fan'   || val == 3) { val = 3; }
+            else if(val == 'dry'   || val == 4) { val = 4; }
             out_msg[byte.mode] = val;
             send(out_msg);
             break;
         case 'fanspeed': //Скорость 2 - min, 1 - mid, 0 - max, 3 - auto
-                 if(val == 'max')  { val = 0; }
-            else if(val == 'mid')  { val = 1; }
-            else if(val == 'min')  { val = 2; }
-            else if(val == 'auto') { val = 3; }
+                 if(val == 'max' || val == 0) { val = 0; }
+            else if(val == 'mid' || val == 1) { val = 1; }
+            else if(val == 'min' || val == 2) { val = 2; }
+            else if(val == 'auto'|| val == 3) { val = 3; }
             out_msg[byte.fanspeed] = val;
             send(out_msg);
             break;
         case 'swing': //1 - верхний и нижний предел вкл., 0 - выкл., 2 - левый/правый вкл., 3 - оба вкл
-                 if(val == false)  { val = 0; }
-            else if(val == 'ud')  { val = 1; }
-            else if(val == 'lr')  { val = 2; }
-            else if(val == 'any') { val = 3; }
+                 if(val == false || val == 0) { val = 0; }
+            else if(val == 'ud'  || val == 1) { val = 1; }
+            else if(val == 'lr'  || val == 2) { val = 2; }
+            else if(val == 'both'|| val == 3) { val = 3; }
             out_msg[byte.swing] = val;
             send(out_msg);
             break;
@@ -109,10 +109,10 @@ function sendCmd(cmd, val){
             break;
         case 'settemp':
             val =  parseInt(val);
-            if(val < 18){
-                val = 18;
-            } else if(val > 33){
-                val = 33;
+            if(val < 16){
+                val = 16;
+            } else if(val > 30){
+                val = 30;
             }
             out_msg[byte.settemp] = val - 16;
             send(out_msg);
@@ -236,7 +236,7 @@ function parse(msg){
             states.swing = 'lr';
             break;
         case 3:
-            states.swing = 'any';
+            states.swing = 'both';
             break;
         default:
     }

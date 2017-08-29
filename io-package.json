@@ -1,8 +1,16 @@
 {
     "common": {
         "name": "haier",
-        "version": "0.0.4",
+        "version": "0.1.0",
         "news": {
+            "0.1.0": {
+                "en": "beta version",
+                "de": "beta version",
+                "ru": "beta version",
+                "pt": "beta version",
+                "fr": "beta version",
+                "nl": "beta version"
+            },
             "0.0.4": {
                 "en": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code",
                 "de": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code",
@@ -194,12 +202,27 @@
             }
         },
         {
+            "_id": "health",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "health",
+                "desc": "health",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
             "_id": "compressor",
             "type": "state",
             "common": {
                 "role": "state",
                 "name": "compressor",
-                "desc": "compressor",
+                "desc": "If the compressor is on",
                 "type": "boolean",
                 "read": true,
                 "write": false,
