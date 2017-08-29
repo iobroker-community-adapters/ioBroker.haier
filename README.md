@@ -25,11 +25,11 @@ Switching the air conditioner on and off. (true/false)
 Setting the temperature. (16 - 30 °C)
 
 ### mode
-* **smart** or **0** One key can give you a comfortable room! The air conditioning unit can judge the indoor temperature and humidity, and make the adjustment accordingly.
-* **cool**  or **1** Cooling room.
-* **heat**  or **2** Room heating.
-* **fan**   or **3** Only fan.
-* **dry**   or **4** Air dehumidification.
+* **smart** or **0** - One key can give you a comfortable room! The air conditioning unit can judge the indoor temperature and humidity, and make the adjustment accordingly.
+* **cool**  or **1** - Cooling room.
+* **heat**  or **2** - Room heating.
+* **fan**   or **3** - Only fan.
+* **dry**   or **4** - Air dehumidification.
 
 ### fanspeed
 * **min**  or **2**
@@ -38,10 +38,10 @@ Setting the temperature. (16 - 30 °C)
 * **auto** or **3**
 
 ### swing
-* **ud**    or **1**  Auto UP/Down.
-* **lr**    or **2**  Auto Left/Right.
-* **both**  or **3**  Both directions.
-* **false** or **0**  Off.
+* **ud**    or **1**  - Auto UP/Down.
+* **lr**    or **2**  - Auto Left/Right.
+* **both**  or **3**  - Both directions.
+* **false** or **0**  - Off.
 
 ### health
 (true/false)
@@ -59,7 +59,7 @@ Exhaust the vitiated air from the room, and inhale fresh air.
 (This function is unavailable on some models.)
 
 ### raw
-RAW HEX code without starting bytes and checksum
+Send RAW HEX code without starting bytes and checksum
 example: power on - **0A000000000001014D02**
 
 
