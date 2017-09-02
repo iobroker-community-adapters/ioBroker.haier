@@ -2,11 +2,10 @@
 var utils =    require(__dirname + '/lib/utils');
 var adapter = utils.adapter('haier');
 var net = require('net');
-var haier = net.Socket();
 var polling_time = 2000;
-var query = null;
+var _connect = false;
 var tabu = false;
-var in_msg, out_msg, states = {}, old_states = {};
+var query, recnt, haier, in_msg, out_msg, states = {}, old_states = {};
 var command = {
     qstn:       [10,0,0,0,0,0,1,1,77,1], // Команда опроса
     poweron:    [10,0,0,0,0,0,1,1,77,2], // Включение кондиционера
@@ -132,13 +131,27 @@ function sendCmd(cmd, val){
 }
 
 adapter.on('ready', function () {
-    main();
+    adapter.subscribeStates('*');
+    connect();
 });
 
-function main() {
-    adapter.subscribeStates('*');
-    var story = [];
-    connect();
+function connect(cb){
+    var host = adapter.config.host ? adapter.config.host : '192.168.1.55';
+    var port = adapter.config.port ? adapter.config.port : 23;
+    adapter.log.debug('Haier ' + 'connect to: ' + host + ':' + port);
+    haier = net.connect(port, host, function() {
+        clearTimeout(recnt);
+        adapter.setState('info.connection', true, true);
+        adapter.log.info('Haier connected to: ' + host + ':' + port);
+        _connect = true;
+        clearInterval(query);
+        query = setInterval(function() {
+            if(!tabu){
+                send(command.qstn);
+            }
+        }, polling_time);
+        if(cb){return cb;}
+    });
     haier.on('data', function(chunk) {
         if (chunk.length == 36){
             in_msg = Buffer.from(chunk);
@@ -152,25 +165,11 @@ function main() {
         err(e);
     });
 
-    haier.on('close', function(exception) {
-        err('Haier disconnected');
-    });
-}
-
-function connect(cb){
-    var host = adapter.config.host ? adapter.config.host : '192.168.1.55';
-    var port = adapter.config.port ? adapter.config.port : 23;
-    adapter.log.debug('Haier ' + 'connect to: ' + host + ':' + port);
-    haier.connect(port, host, function() {
-        adapter.setState('info.connection', true, true);
-        adapter.log.info('Haier connected to: ' + host + ':' + port);
-        clearInterval(query);
-        query = setInterval(function() {
-            if(!tabu){
-                send(command.qstn);
-            }
-        }, polling_time);
-        if(cb){return cb;}
+    haier.on('close', function(e) {
+        if(_connect){
+            err('Haier disconnected');
+        }
+        reconnect();
     });
 }
 
@@ -300,14 +299,21 @@ function toArr(text, numb){
     return arr
 }
 
+function reconnect(){
+    clearInterval(query);
+    clearTimeout(recnt);
+    haier.destroy();
+    adapter.setState('info.connection', false, true);
+    adapter.log.info('Reconnect after 60 sec...');
+    _connect = false;
+    recnt = setTimeout(function() {
+        connect();
+    }, 60000);
+}
+
 function err(e){
-    if (e){
-        adapter.log.error("Haier " + e);
-        clearInterval(query);
-        adapter.log.error('Error socket: Reconnect after 15 sec...');
-        adapter.setState('info.connection', false, true);
-        setTimeout(function() {
-            main();
-        }, 15000);
+    adapter.log.error("Haier " + e);
+    if (e.code == "ENOTFOUND" || e.code == "ECONNREFUSED" || e.code == "ETIMEDOUT") {
+        haier.destroy();
     }
 }

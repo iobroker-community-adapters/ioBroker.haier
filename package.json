@@ -1,6 +1,6 @@
 {
   "name": "iobroker.haier",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ioBroker Haier air conditioning Adapter",
   "author": {
     "name": "instalator",

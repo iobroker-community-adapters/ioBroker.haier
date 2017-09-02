@@ -65,6 +65,9 @@ example: power on - **0A000000000001014D02**
 
 ## Changelog
 
+### 0.1.1
+   (instalator) fix reconnect error
+
 ### 0.1.0
    (instalator) beta version
 
