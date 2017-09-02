@@ -1,8 +1,16 @@
 {
     "common": {
         "name": "haier",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "news": {
+            "0.1.1": {
+                "en": "fix reconnect error",
+                "de": "fix reconnect error",
+                "ru": "fix reconnect error",
+                "pt": "fix reconnect error",
+                "fr": "fix reconnect error",
+                "nl": "fix reconnect error"
+            },
             "0.1.0": {
                 "en": "beta version",
                 "de": "beta version",
