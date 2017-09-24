@@ -242,10 +242,10 @@ function parse(msg){
     states.lockremote = toBool(msg[byte.lockremote]);   //128 блокировка вкл., 0 -  выкл
     states.fresh      = toBool(msg[byte.fresh]);        //fresh 0 - off, 1 - on
     states.settemp    = msg[byte.settemp] + 16;         //Установленная температура
-    if(msg[byte.power] == 1 || msg[byte.power] == 16 || msg[byte.power] == 17 || msg[byte.power] == 25 || msg[byte.power] == 9){
+    if(msg[byte.power] == 1 || msg[byte.power] == 17 || msg[byte.power] == 25 || msg[byte.power] == 9){
         //on/off 1 - on, 0 - off (16, 17)-Компрессор??? 9 - QUIET (17)
         states.power = true;
-    } else if(msg[byte.power] == 0){
+    } else if(msg[byte.power] == 0 || msg[byte.power] == 16){
         states.power = false;
     }
     if(msg[byte.health] == 25 || msg[byte.power] == 9){
@@ -304,6 +304,7 @@ function reconnect(){
     clearTimeout(recnt);
     haier.destroy();
     adapter.setState('info.connection', false, true);
+    old_states = {};
     adapter.log.info('Reconnect after 60 sec...');
     _connect = false;
     recnt = setTimeout(function() {
