@@ -58,7 +58,7 @@
         "icon": "haier.png",
         "enabled": false,
         "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.haier/master/admin/haier.png",
-        "keywords": ["haier", "air conditioning"],
+        "keywords": ["haier", "air conditioning", "climate control"],
         "readme": "https://github.com/instalator/ioBroker.haier/blob/master/README.md",
         "loglevel": "info",
         "type": "hardware"
