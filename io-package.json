@@ -54,6 +54,10 @@
             "nl": "ioBroker Haier Adapter"
         },
         "platform": "Javascript/Node.js",
+        "license":                  "MIT",
+	"authors": [
+            "instalator"
+        ],
         "mode": "daemon",
         "icon": "haier.png",
         "enabled": false,
