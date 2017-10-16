@@ -62,18 +62,26 @@
         "icon": "haier.png",
         "enabled": false,
         "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.haier/master/admin/haier.png",
-        "keywords": ["haier", "air conditioning", "climate control"],
+        "keywords": [
+            "haier",
+            "air conditioning",
+            "climate control"
+        ],
         "readme": "https://github.com/instalator/ioBroker.haier/blob/master/README.md",
         "loglevel": "info",
-        "type": "hardware"
+        "type": "climate-control",
+        "authors": [
+            {
+                "name": "instalator",
+                "email": "vvvalt@mail.ru"
+            }
+        ]
     },
     "native": {
         "host": "127.0.0.1",
         "port": 23
     },
-    "objects": [
-
-    ],
+    "objects": [],
     "instanceObjects": [
         {
             "_id": "info.connection",
@@ -86,8 +94,7 @@
                 "write": false,
                 "def": false
             },
-            "native": {
-            }
+            "native": {}
         },
         {
             "_id": "temp",
@@ -102,8 +109,7 @@
                 "write": false,
                 "def": false
             },
-            "native": {
-            }
+            "native": {}
         },
         {
             "_id": "settemp",
@@ -120,8 +126,7 @@
                 "write": true,
                 "def": false
             },
-            "native": {
-            }
+            "native": {}
         },
         {
             "_id": "mode",
@@ -135,8 +140,7 @@
                 "write": true,
                 "def": false
             },
-            "native": {
-            }
+            "native": {}
         },
         {
             "_id": "fanspeed",
@@ -150,8 +154,7 @@
                 "write": true,
                 "def": false
             },
-            "native": {
-            }
+            "native": {}
         },
         {
             "_id": "swing",
@@ -165,8 +168,7 @@
                 "write": true,
                 "def": false
             },
-            "native": {
-            }
+            "native": {}
         },
         {
             "_id": "lockremote",
@@ -180,8 +182,7 @@
                 "write": true,
                 "def": false
             },
-            "native": {
-            }
+            "native": {}
         },
         {
             "_id": "fresh",
@@ -195,8 +196,7 @@
                 "write": true,
                 "def": false
             },
-            "native": {
-            }
+            "native": {}
         },
         {
             "_id": "power",
@@ -210,8 +210,7 @@
                 "write": true,
                 "def": false
             },
-            "native": {
-            }
+            "native": {}
         },
         {
             "_id": "health",
@@ -225,8 +224,7 @@
                 "write": true,
                 "def": false
             },
-            "native": {
-            }
+            "native": {}
         },
         {
             "_id": "compressor",
@@ -240,8 +238,7 @@
                 "write": false,
                 "def": false
             },
-            "native": {
-            }
+            "native": {}
         },
         {
             "_id": "raw",
@@ -255,8 +252,7 @@
                 "write": true,
                 "def": false
             },
-            "native": {
-            }
+            "native": {}
         }
     ]
 }
