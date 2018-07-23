@@ -1,5 +1,5 @@
 ![Logo](admin/haier_admin.png)
-ioBroker Haier air conditioning adapter
+# ioBroker Haier air conditioning adapter
 =================
 [![NPM version](http://img.shields.io/npm/v/iobroker.haier.svg)](https://www.npmjs.com/package/iobroker.haier)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.haier.svg)](https://www.npmjs.com/package/iobroker.haier)
