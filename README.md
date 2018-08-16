@@ -65,6 +65,9 @@ example: power on - **0A000000000001014D02**
 
 ## Changelog
 
+### 1.0.1
+   (instalator) fix error parse packets
+
 ### 1.0.0
    (instalator) Up to stable
 
