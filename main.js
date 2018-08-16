@@ -1,6 +1,6 @@
 "use strict";
 var utils =    require(__dirname + '/lib/utils');
-var adapter = utils.Adapter('haier');
+var adapter = utils.adapter('haier');
 var net = require('net');
 var polling_time = 2000;
 var _connect = false;
