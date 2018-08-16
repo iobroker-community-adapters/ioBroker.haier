@@ -98,9 +98,9 @@ describe('Test ' + adapterShortName + ' adapter', function() {
         });
     });
 
-/*
-    ENABLE THIS WHEN ADAPTER RUNS IN DEAMON MODE TO CHECK THAT IT HAS STARTED SUCCESSFULLY
-*/
+    /*
+     ENABLE THIS WHEN ADAPTER RUNS IN DEAMON MODE TO CHECK THAT IT HAS STARTED SUCCESSFULLY
+     */
     it('Test ' + adapterShortName + ' adapter: Check if adapter started', function (done) {
         this.timeout(60000);
         checkConnectionOfAdapter(function (res) {
@@ -118,16 +118,16 @@ describe('Test ' + adapterShortName + ' adapter', function() {
                 });
         });
     });
-/**/
+    /**/
 
-/*
-    PUT YOUR OWN TESTS HERE USING
-    it('Testname', function ( done) {
-        ...
-    });
+    /*
+     PUT YOUR OWN TESTS HERE USING
+     it('Testname', function ( done) {
+     ...
+     });
 
-    You can also use "sendTo" method to send messages to the started adapter
-*/
+     You can also use "sendTo" method to send messages to the started adapter
+     */
 
     after('Test ' + adapterShortName + ' adapter: Stop js-controller', function (done) {
         this.timeout(10000);

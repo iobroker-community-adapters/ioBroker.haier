@@ -53,13 +53,25 @@
             }
         },
         "title": "Haier air conditioning control",
+        "titleLang": {
+            "en": "ioBroker haier Adapter",
+            "de": "ioBroker Haier Adapter",
+            "ru": "ioBroker Haier драйвер",
+            "pt": "Modelo de adaptador para o ioBroker",
+            "fr": "ioBroker adaptateur modèle",
+            "nl": "ioBroker Haier Adapter",
+            "it": "ioBroker haier Adapter",
+            "es": "ioBroker haier Adapter"
+        },
         "desc": {
             "en": "ioBroker haier Adapter",
             "de": "ioBroker Haier Adapter",
             "ru": "ioBroker Haier драйвер",
             "pt": "Modelo de adaptador para o ioBroker",
             "fr": "ioBroker adaptateur modèle",
-            "nl": "ioBroker Haier Adapter"
+            "nl": "ioBroker Haier Adapter",
+            "it": "ioBroker haier Adapter",
+            "es": "ioBroker haier Adapter"
         },
         "platform": "Javascript/Node.js",
         "license":                  "MIT",
