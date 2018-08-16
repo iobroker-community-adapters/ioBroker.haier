@@ -69,7 +69,7 @@ function sendCmd(cmd, val){
             }
             break;
         case 'mode': //4 - DRY, 1 - cool, 2 - heat, 0 - smart, 3 - fan
-                 if(val == 'smart' || val == 0) { val = 0; }
+            if(val == 'smart' || val == 0) { val = 0; }
             else if(val == 'cool'  || val == 1) { val = 1; }
             else if(val == 'heat'  || val == 2) { val = 2; }
             else if(val == 'fan'   || val == 3) { val = 3; }
@@ -78,7 +78,7 @@ function sendCmd(cmd, val){
             send(out_msg);
             break;
         case 'fanspeed': //Скорость 2 - min, 1 - mid, 0 - max, 3 - auto
-                 if(val == 'max' || val == 0) { val = 0; }
+            if(val == 'max' || val == 0) { val = 0; }
             else if(val == 'mid' || val == 1) { val = 1; }
             else if(val == 'min' || val == 2) { val = 2; }
             else if(val == 'auto'|| val == 3) { val = 3; }
@@ -86,7 +86,7 @@ function sendCmd(cmd, val){
             send(out_msg);
             break;
         case 'swing': //1 - верхний и нижний предел вкл., 0 - выкл., 2 - левый/правый вкл., 3 - оба вкл
-                 if(val == false || val == 0) { val = 0; }
+            if(val == false || val == 0) { val = 0; }
             else if(val == 'ud'  || val == 1) { val = 1; }
             else if(val == 'lr'  || val == 2) { val = 2; }
             else if(val == 'both'|| val == 3) { val = 3; }
@@ -101,7 +101,7 @@ function sendCmd(cmd, val){
             //send(command.lockremote);
             break;
         case 'fresh': //fresh 0 - off, 1 - on
-                 if(val == false) { val = 0; }
+            if(val == false) { val = 0; }
             else if(val == true)  { val = 1; }
             out_msg[byte.fresh] = val;
             send(out_msg);
@@ -124,7 +124,7 @@ function sendCmd(cmd, val){
             }
             break;
         case 'raw':
-                send(toArr(val, 2));
+            send(toArr(val, 2));
             break;
         default:
     }
@@ -153,9 +153,20 @@ function connect(cb){
         if(cb){return cb;}
     });
     haier.on('data', function(chunk) {
-        if (chunk.length == 36){
+        adapter.log.debug("Haier raw response: {" + chunk.toString('hex') + '} Length packet:[' + chunk.length + ']');
+        if (chunk.length == 37){
+            in_msg = Buffer.from(chunk);
+            in_msg = in_msg.slice(2, 36);
+            adapter.log.debug("Haier incomming: " + in_msg.toString('hex'));
+            parse(in_msg);
+        } else if(chunk.length == 36){
             in_msg = Buffer.from(chunk);
             in_msg = in_msg.slice(1, 35);
+            adapter.log.debug("Haier incomming: " + in_msg.toString('hex'));
+            parse(in_msg);
+        } else if(chunk.length == 35){
+            in_msg = Buffer.from(chunk);
+            in_msg = in_msg.slice(0, 34);
             adapter.log.debug("Haier incomming: " + in_msg.toString('hex'));
             parse(in_msg);
         }
@@ -285,7 +296,7 @@ function CRC(d){
     for (var key of d.keys()) {
         sum += d[key];
     }
-   return sum;
+    return sum;
 }
 
 function toArr(text, numb){
