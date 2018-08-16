@@ -131,12 +131,12 @@ function sendCmd(cmd, val){
 }
 
 adapter.on('ready', function () {
-    adapter.subscribeStates('*');
     connect();
 });
 
 function connect(cb){
-    var host = adapter.config.host ? adapter.config.host : '192.168.1.55';
+    adapter.subscribeStates('*');
+    var host = adapter.config.host ? adapter.config.host : '127.0.0.1';
     var port = adapter.config.port ? adapter.config.port : 23;
     adapter.log.debug('Haier ' + 'connect to: ' + host + ':' + port);
     haier = net.connect(port, host, function() {
