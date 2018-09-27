@@ -1,8 +1,16 @@
 {
     "common": {
         "name": "haier",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "news": {
+            "1.0.2": {
+                "en": "fix error",
+                "de": "fix error",
+                "ru": "fix error",
+                "pt": "fix error",
+                "fr": "fix error",
+                "nl": "fix error"
+            },
          "1.0.1": {
                 "en": "fix error parse packets",
                 "de": "fix error parse packets",
