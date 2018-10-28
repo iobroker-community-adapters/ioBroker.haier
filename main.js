@@ -180,6 +180,8 @@ function connect(cb){
             in_msg = in_msg.slice(0, 34);
             adapter.log.debug("Haier incomming: " + in_msg.toString('hex'));
             parse(in_msg);
+        } else {
+            adapter.log.error("Error length packet. Raw response: {" + chunk.toString('hex') + '} Length packet:[' + chunk.length + ']');
         }
     });
     haier.on('error', function(e) {
