@@ -154,6 +154,17 @@ function connect(cb){
     });
     haier.on('data', function(chunk) {
         adapter.log.debug("Haier raw response: {" + chunk.toString('hex') + '} Length packet:[' + chunk.length + ']');
+        if(chunk.length == 33 || chunk.length == 34){ //20 00 00 00 01 02 6d01001e0000007f0000000000010002000000100000000000094c
+            var a;
+            chunk[0] = 0;
+            if(chunk.length == 34){
+                a = Buffer.from([0]);
+            } else if (chunk.length == 33){
+                a = Buffer.from([0,0]);
+            }
+            chunk = Buffer.concat([a, chunk]);
+            chunk[0] = 34;
+        }
         if (chunk.length == 37){
             in_msg = Buffer.from(chunk);
             in_msg = in_msg.slice(2, 36);
@@ -171,11 +182,9 @@ function connect(cb){
             parse(in_msg);
         }
     });
-
     haier.on('error', function(e) {
         err(e);
     });
-
     haier.on('close', function(e) {
         if(_connect){
             err('Haier disconnected');
