@@ -1,7 +1,7 @@
 ![Logo](admin/haier_admin.png)
 # ioBroker Haier air conditioning adapter
 =================
-[![NPM version](http://img.shields.io/npm/v/iobroker.haier.svg)](https://www.npmjs.com/package/iobroker.haier)
+![Number of Installations](http://iobroker.live/badges/haier-installed.svg) ![Number of Installations](http://iobroker.live/badges/haier-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.haier.svg)](https://www.npmjs.com/package/iobroker.haier)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.haier.svg)](https://www.npmjs.com/package/iobroker.haier)
 [![Tests](http://img.shields.io/travis/instalator/ioBroker.haier/master.svg)](https://travis-ci.org/instalator/ioBroker.haier)
 
