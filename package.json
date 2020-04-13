@@ -1,6 +1,6 @@
 {
   "name": "iobroker.haier",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "ioBroker Haier air conditioning Adapter",
   "author": {
     "name": "instalator",
@@ -24,16 +24,16 @@
     "url": "https://github.com/instalator/ioBroker.haier"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^1.0.3"
+    "@iobroker/adapter-core": "^2.2.1"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
+    "grunt": "^1.1.0",
     "grunt-replace": "^1.0.1",
-    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-jshint": "^2.1.0",
     "grunt-jscs": "^3.0.1",
-    "grunt-http": "^2.2.0",
-    "mocha": "^4.1.0",
-    "chai": "^4.1.2"
+    "grunt-http": "^2.3.3",
+    "mocha": "^7.1.1",
+    "chai": "^4.2.0"
   },
   "main": "main.js",
   "scripts": {
