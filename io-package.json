@@ -1,8 +1,16 @@
 {
   "common": {
     "name": "haier",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "news": {
+      "1.0.4": {
+        "en": "change test",
+        "de": "change test",
+        "ru": "change test",
+        "pt": "change test",
+        "fr": "change test",
+        "nl": "change test"
+      },
       "1.0.3": {
         "en": "support admin3\nsupport compact mode\nchange smart to auto\nadded role for state",
         "de": "support admin3\nsupport compact mode\nchange smart to auto\nadded role for state",
@@ -18,62 +26,6 @@
         "pt": "fix error",
         "fr": "fix error",
         "nl": "fix error"
-      },
-      "1.0.1": {
-        "en": "fix error parse packets",
-        "de": "fix error parse packets",
-        "ru": "fix error parse packets",
-        "pt": "fix error parse packets",
-        "fr": "fix error parse packets",
-        "nl": "fix error parse packets"
-      },
-      "1.0.0": {
-        "en": "up to stable",
-        "de": "up to stable",
-        "ru": "up to stable",
-        "pt": "up to stable",
-        "fr": "up to stable",
-        "nl": "up to stable"
-      },
-      "0.1.1": {
-        "en": "fix reconnect error",
-        "de": "fix reconnect error",
-        "ru": "fix reconnect error",
-        "pt": "fix reconnect error",
-        "fr": "fix reconnect error",
-        "nl": "fix reconnect error"
-      },
-      "0.1.0": {
-        "en": "beta version",
-        "de": "beta version",
-        "ru": "beta version",
-        "pt": "beta version",
-        "fr": "beta version",
-        "nl": "beta version"
-      },
-      "0.0.4": {
-        "en": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code",
-        "de": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code",
-        "ru": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code",
-        "pt": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code",
-        "fr": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code",
-        "nl": "change level log\nfix send command\nchange for test file setup.js\nfix error\nadded object for send raw code"
-      },
-      "0.0.3": {
-        "en": "alfa version adapter",
-        "de": "alfa version adapter",
-        "ru": "alfa version adapter",
-        "pt": "alfa version adapter",
-        "fr": "alfa version adapter",
-        "nl": "alfa version adapter"
-      },
-      "0.0.1": {
-        "en": "initial adapter",
-        "de": "Initiale Version",
-        "ru": "Первоначальный адаптер",
-        "pt": "Versão inicial",
-        "fr": "Version initiale",
-        "nl": "Eerste release"
       }
     },
     "title": "Haier air conditioning control",
