@@ -30,14 +30,17 @@
     },
     "title": "Haier air conditioning control",
     "titleLang": {
-      "en": "ioBroker haier Adapter",
-      "de": "ioBroker Haier Adapter",
-      "ru": "ioBroker Haier драйвер",
-      "pt": "Modelo de adaptador para o ioBroker",
-      "fr": "ioBroker adaptateur modèle",
-      "nl": "ioBroker Haier Adapter",
-      "it": "ioBroker haier Adapter",
-      "es": "ioBroker haier Adapter"
+      "en": "Haier air conditioning control",
+      "de": "Haier Klimaanlage",
+      "ru": "Хайер кондиционер",
+      "pt": "Controle de ar condicionado Haier",
+      "nl": "Haier airconditioning",
+      "fr": "Contrôle de la climatisation",
+      "it": "Haier aria condizionata controllo",
+      "es": "Control de aire acondicionado Haier",
+      "pl": "Klimatyzacja",
+      "uk": "Haier управління кондиціонером",
+      "zh-cn": "海陆空控制"
     },
     "desc": {
       "en": "ioBroker haier Adapter",

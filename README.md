@@ -72,6 +72,15 @@ example: power on - **0A000000000001014D02**
 
 ## Changelog
 
+## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 1.0.4
    (instalator) change test
 
