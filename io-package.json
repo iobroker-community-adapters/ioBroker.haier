@@ -28,7 +28,6 @@
         "nl": "fix error"
       }
     },
-    "title": "Haier air conditioning control",
     "titleLang": {
       "en": "Haier air conditioning control",
       "de": "Haier Klimaanlage",
@@ -53,7 +52,10 @@
       "es": "ioBroker haier Adapter"
     },
     "platform": "Javascript/Node.js",
-    "license": "MIT",
+    "licenseInformation": {
+      "license": "MIT",
+      "type": "free"
+    },
     "authors": [
       {
         "name": "instalator",
@@ -72,8 +74,18 @@
     ],
     "readme": "https://github.com/instalator/ioBroker.haier/blob/master/README.md",
     "loglevel": "info",
+    "tier": 2,
     "type": "climate-control",
-    "installedFrom": "https://github.com/instalator/ioBroker.haier/tarball/master"
+    "dependencies": [
+      {
+        "js-controller": ">=5.0.19"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=6.13.16"
+      }
+    ]
   },
   "native": {
     "host": "127.0.0.1",
