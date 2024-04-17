@@ -77,7 +77,7 @@ example: power on - **0A000000000001014D02**
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.0 (2024-04-17)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
 
@@ -111,13 +111,13 @@ example: power on - **0A000000000001014D02**
   (instalator) change for test file setup.js
   (instalator) fix error
   (instalator) added object for send raw code
-  
+
 ### 0.0.3
   (instalator) alfa version adapter
 
 ### 0.0.1
   (instalator) initial
-  
+
 ## License
 The MIT License (MIT)
 
