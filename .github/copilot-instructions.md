@@ -49,6 +49,8 @@ You are working on an ioBroker adapter. ioBroker is an integration platform for 
 
 #### Framework Structure
 Integration tests MUST follow this exact pattern:
+
+```javascript
 const path = require('path');
 const { tests } = require('@iobroker/testing');
 
