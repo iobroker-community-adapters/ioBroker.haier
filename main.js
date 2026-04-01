@@ -1,6 +1,6 @@
 "use strict";
 const utils = require('@iobroker/adapter-core');
-let net = require('net');
+let net = require('node:net');
 let adapter, query, recnt, haier, in_msg, out_msg, states = {}, old_states = {}, tabu = false, _connect = false;
 const polling_time = 2000;
 const command = {
