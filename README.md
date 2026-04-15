@@ -77,8 +77,7 @@ example: power on - **0A000000000001014D02**
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.2.0 (2026-04-15)
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
@@ -99,31 +98,6 @@ example: power on - **0A000000000001014D02**
 
 ### 1.0.2
    (instalator) fix error
-
-### 1.0.1
-   (instalator) fix error parse packets
-
-### 1.0.0
-   (instalator) Up to stable
-
-### 0.1.1
-   (instalator) fix reconnect error
-
-### 0.1.0
-   (instalator) beta version
-
-### 0.0.4
-  (instalator) change level log
-  (instalator) fix send command
-  (instalator) change for test file setup.js
-  (instalator) fix error
-  (instalator) added object for send raw code
-
-### 0.0.3
-  (instalator) alfa version adapter
-
-### 0.0.1
-  (instalator) initial
 
 ## License
 The MIT License (MIT)
