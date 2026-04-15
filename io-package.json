@@ -1,9 +1,9 @@
 {
   "common": {
     "name": "haier",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "news": {
-      "1.2.0": {
+      "1.2.1": {
         "en": "Adapter requires node.js >= 20 now.\nAdapter requires admin >= 7.7.22 now\nAdapter requires js-controller >= 6.0.11 now\nDependencies have been updated",
         "de": "Adapter benötigt jetzt node.js >= 20.\nAdapter benötigt admin >= 7.7.22 jetzt\nAdapter benötigt jetzt js-controller >= 6.0.11\nAbhängigkeiten wurden aktualisiert",
         "ru": "Адаптер требует node.js >= 20 сейчас.\nАдаптер требует администратора >= 7.7.22\nАдаптер требует js-контроллер >= 6.0.11\nЗависимости были обновлены",
