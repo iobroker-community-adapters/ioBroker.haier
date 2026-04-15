@@ -83,6 +83,8 @@
       "air conditioning",
       "climate control"
     ],
+    "connectionType": "local",
+    "dataSource": "poll",
     "readme": "https://github.com/instalator/ioBroker.haier/blob/master/README.md",
     "loglevel": "info",
     "tier": 2,
