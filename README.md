@@ -82,6 +82,7 @@ example: power on - **0A000000000001014D02**
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
+* (mcm1957) Dependencies have been updated
 
 ### 1.1.0 (2024-04-17)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
