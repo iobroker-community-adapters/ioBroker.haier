@@ -1,6 +1,6 @@
 'use strict';
 const utils = require('@iobroker/adapter-core');
-let net = require('net');
+let net = require('node:net');
 let adapter,
     query,
     recnt,
