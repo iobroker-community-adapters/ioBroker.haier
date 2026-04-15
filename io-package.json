@@ -22,7 +22,12 @@
         "ru": "change test",
         "pt": "change test",
         "fr": "change test",
-        "nl": "change test"
+        "nl": "change test",
+        "it": "prova di cambio",
+        "es": "prueba de cambio",
+        "pl": "zmienić test",
+        "uk": "змінити тест",
+        "zh-cn": "改变测试"
       },
       "1.0.3": {
         "en": "support admin3\nsupport compact mode\nchange smart to auto\nadded role for state",
@@ -30,7 +35,12 @@
         "ru": "support admin3\nsupport compact mode\nchange smart to auto\nadded role for state",
         "pt": "support admin3\nsupport compact mode\nchange smart to auto\nadded role for state",
         "fr": "support admin3\nsupport compact mode\nchange smart to auto\nadded role for state",
-        "nl": "support admin3\nsupport compact mode\nchange smart to auto\nadded role for state"
+        "nl": "support admin3\nsupport compact mode\nchange smart to auto\nadded role for state",
+        "it": "supporto amministratore3\nsupportare la modalità compatta\ncambia intelligente in automatico\nruolo aggiunto per lo Stato",
+        "es": "administrador de soporte3\nsoporte modo compacto\ncambiar inteligente a automático\npapel añadido para el estado",
+        "pl": "wsparcie administratora3\nobsługuje tryb kompaktowy\nzmień smarta na auto\ndodana rola państwa",
+        "uk": "підтримка admin3\nпідтримка компактного режиму\nзмінити розумний на автоматичний\nдодаткова роль держави",
+        "zh-cn": "支持管理3\n支持紧凑模式\n将智能更改为自动\n国家的新增角色"
       },
       "1.0.2": {
         "en": "fix error",
@@ -38,7 +48,12 @@
         "ru": "fix error",
         "pt": "fix error",
         "fr": "fix error",
-        "nl": "fix error"
+        "nl": "fix error",
+        "it": "correggere l'errore",
+        "es": "arreglar error",
+        "pl": "naprawić błąd",
+        "uk": "виправити помилку",
+        "zh-cn": "修复错误"
       }
     },
     "titleLang": {
@@ -62,7 +77,10 @@
       "fr": "ioBroker adaptateur modèle",
       "nl": "ioBroker Haier Adapter",
       "it": "ioBroker haier Adapter",
-      "es": "ioBroker haier Adapter"
+      "es": "ioBroker haier Adapter",
+      "pl": "Adapter ioBroker haier",
+      "uk": "Адаптер ioBroker haier",
+      "zh-cn": "ioBroker海尔适配器"
     },
     "platform": "Javascript/Node.js",
     "licenseInformation": {
