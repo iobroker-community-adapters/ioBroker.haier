@@ -72,6 +72,9 @@ example: power on - **0A000000000001014D02**
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
