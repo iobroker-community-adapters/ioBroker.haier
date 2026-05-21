@@ -1,0 +1,6 @@
+{
+  "Haier adapter settings": "Настройки драйвера Haier",
+  "Haier adapter settings desc": "Укажите IP адрес и порт для управления кондиционером Haier",
+  "host": "IP адрес",
+  "port": "Порт"
+}
