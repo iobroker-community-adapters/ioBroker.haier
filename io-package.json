@@ -107,7 +107,6 @@
     "mode": "daemon",
     "icon": "haier.png",
     "enabled": false,
-    "materialize": true,
     "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.haier/master/admin/haier.png",
     "keywords": [
       "haier",
@@ -129,7 +128,10 @@
       {
         "admin": ">=7.7.22"
       }
-    ]
+    ],
+    "adminUI": {
+      "config": "materialize"
+    }
   },
   "native": {
     "host": "127.0.0.1",
