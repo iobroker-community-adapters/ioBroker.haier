@@ -71,17 +71,14 @@ example: power on - **0A000000000001014D02**
 
 
 ## Changelog
-
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
-## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.2.1 (2026-04-15)
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -103,6 +100,8 @@ example: power on - **0A000000000001014D02**
 
 ### 1.0.2
    (instalator) fix error
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)
