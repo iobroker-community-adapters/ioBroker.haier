@@ -77,6 +77,7 @@ example: power on - **0A000000000001014D02**
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (copilot) Adapter requires node.js >= 22 now
 
 ### 1.2.1 (2026-04-15)
